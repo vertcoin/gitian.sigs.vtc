@@ -21,7 +21,9 @@ Starting with a clean install of Ubuntu 12.04 LTS x64, this HOWTO was written/te
 building a later version, you may need to make small adjustments based on updated versions of dependencies etc.
 
 sudo apt-get update
+
 sudo apt-get upgrade
+
 sudo apt-get install python-vm-builder qemu-kvm apt-cacher ruby git
 
 If asked for a mode for apt-cacher to run in, select daemon
