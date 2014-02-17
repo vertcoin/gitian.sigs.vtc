@@ -46,14 +46,12 @@ git clone https://github.com/vertcoin/vertcoin
 Now make sure you're working on the correct version of the source that was used to build the release you are verifying. 
 
 cd vertcoin
-
 git checkout v0.8.6.2
 
 Now create a git branch of the gitian.sigs.vtc repository, so you can generate a pull request later once you've signed your 
 build assert files:
 
 cd ../gitian-builder
-
 git checkout -b mysigs
 
 Now go and create a fork of the gitian.sigs.vtc repository on github, and add it as another remote with:
