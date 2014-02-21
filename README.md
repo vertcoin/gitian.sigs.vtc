@@ -6,13 +6,20 @@ This repository holds the build signatures for the gitian build process.
 Gitian-builder (https://github.com/devrandom/gitian-builder) enables deterministic, replicable build inside a virtual machine,
 such that several people can build from the same source and generate a bit-for-bit identical set of binaries. This enhances
 the trustlessness of the Vertcoin build/release process, by allowing anyone to validate that the released binaries were
-generated from the unchanged published source code, even if they don't build the binaries themselves - a user can assure
-themselves that multiple individuals claimed to have generated the same results from the same source code, eliminating
-the possibility of a single individual concealing changes to the code.
+generated from the unchanged published source code. 
 
-The more people that gitian build, the stronger the assurance. Please consider contacting contact@vertcoin.org if you
-are able to gitian build, so you can be added to the repository as a contributor and push up your build assert files
-and signatures.
+Even if they don't build the binaries themselves - a user can assure themselves that multiple individuals claimed to have 
+generated the same results from the same source code, eliminating the possibility of a single individual concealing 
+changes to the code.
+
+The more people that gitian build, the stronger the assurance. Please consider following the instructions below to
+gitian-build to help validate our builds.
+
+This HOWTO was written against release v0.8.6.2 of Vertcoin. Change the specified commit in the commands as necessary
+if you want to build a different version. You can build a specific commit by specifying the full commit ID, or you
+can build a release by specifying a tag like v0.8.6.2. The full list of release tags is at 
+https://github.com/vertcoin/vertcoin/releases
+
 
 HOWTO for Gitian builds:
 ========================
@@ -171,4 +178,3 @@ git push myfork mysigs
 Now you can either manually git request-pull from the command line, or go to your forked repo on the github website, and
 click the button to create a pull request. If you do it from the command line, remember to email the output to contact@vertcoin.org
 however doing it from the github site automatically does this.
-
