@@ -155,7 +155,7 @@ Now you can get to signing your assert files:
 
 - If you don't have your gpg key on the build VM yet, simply gpg --import it first, then;
 
-bin/gsign --signer you@yourdomain.com --release v.0.8.6.2 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+bin/gsign --signer you@yourdomain.com --release v0.8.6.2 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
 
 You now have an .assert file in the appropriate subfolder of the gitian.sigs.vtc folder, and an accompanying signature.
 
