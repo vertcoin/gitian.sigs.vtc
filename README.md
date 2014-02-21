@@ -155,7 +155,14 @@ Now you can get to signing your assert files:
 
 - If you don't have your gpg key on the build VM yet, simply gpg --import it first, then;
 
-bin/gsign --signer you@yourdomain.com --release v0.8.6.2.1 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+bin/gsign --signer you@yourdomain.com --release v0.8.6.2.1-20140221 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+
+Note the -20140221 on the end of the release version above is simply the release date of the build in the
+format -YYYYMMDD, you can find the correct reference date for the version you are building in
+vertcoin/contrib/gitian-descriptors/gitian-win32.yml - the date is appended, since only release versions
+are tagged, but if builds are updated for very minor changes only the build date will change, and those
+versions can be built by specifying a full commit ID in the gbuild --commit vertcoin= command, so
+intermediate releases can also be gitian built despite not having version tags.
 
 You now have an .assert file in the appropriate subfolder of the gitian.sigs.vtc folder, and an accompanying signature.
 
