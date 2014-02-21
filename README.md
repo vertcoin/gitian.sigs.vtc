@@ -161,8 +161,11 @@ gpg --export -a "User Name" > "Your Name you@yourdomain.com (0xKeyFingerprint) p
 Now simply commit your signature back to the github.
 
 cd ../gitian.sigs.vtc/
+
 git add -A
+
 git commit -a
+
 git push myfork mysigs
 
 Now you can either manually git request-pull from the command line, or go to your forked repo on the github website, and
