@@ -15,9 +15,9 @@ changes to the code.
 The more people that gitian build, the stronger the assurance. Please consider following the instructions below to
 gitian-build to help validate our builds.
 
-This HOWTO was written against release v0.8.6.2 of Vertcoin. Change the specified commit in the commands as necessary
+This HOWTO was written against release v0.8.6.2.1 of Vertcoin. Change the specified commit in the commands as necessary
 if you want to build a different version. You can build a specific commit by specifying the full commit ID, or you
-can build a release by specifying a tag like v0.8.6.2. The full list of release tags is at 
+can build a release by specifying a tag like v0.8.6.2.1 The full list of release tags is at 
 https://github.com/vertcoin/vertcoin/releases
 
 
@@ -54,7 +54,7 @@ Now make sure you're working on the correct version of the source that was used 
 
 cd vertcoin
 
-git checkout v0.8.6.2
+git checkout v0.8.6.2.1
 
 Now create a git branch of the gitian.sigs.vtc repository, so you can generate a pull request later once you've signed your 
 build assert files:
@@ -120,7 +120,7 @@ sudo mv build/out/qt-win32-4.8.3-gitian-r4.zip inputs/
 
 Now we can build Vertcoin, note that you must specify the tag in the repository that relates to the version you wish to build:
 
-sudo bin/gbuild --commit vertcoin=v0.8.6.2 ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+sudo bin/gbuild --commit vertcoin=v0.8.6.2.1 ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
 
 It will pull the source again from git, into the inputs folder. The reason we have specified the version twice (earlier when we 
 did 'git checkout', and again now), is because earlier we wanted to ensure we were working with the correct version of the gitian 
@@ -155,7 +155,7 @@ Now you can get to signing your assert files:
 
 - If you don't have your gpg key on the build VM yet, simply gpg --import it first, then;
 
-bin/gsign --signer you@yourdomain.com --release v0.8.6.2 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+bin/gsign --signer you@yourdomain.com --release v0.8.6.2.1 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
 
 You now have an .assert file in the appropriate subfolder of the gitian.sigs.vtc folder, and an accompanying signature.
 
