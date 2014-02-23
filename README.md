@@ -18,7 +18,7 @@ gitian-build to help validate our builds.
 This HOWTO was written against release v0.8.6.2.2 of Vertcoin. Change the specified commit in the commands as necessary
 if you want to build a different version. You can build a specific commit by specifying the full commit ID, or you
 can build a release by specifying a tag like v0.8.6.2.2 The full list of release tags is at 
-https://github.com/vertcoin/vertcoin/releases
+https://github.com/vertcoin/vertcoin/releases and archived binaries are attached to each release tag
 
 
 HOWTO for Gitian builds:
