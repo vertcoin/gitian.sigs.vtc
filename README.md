@@ -78,7 +78,7 @@ cd inputs
 
 wget 'http://miniupnp.free.fr/files/download.php?file=miniupnpc-1.6.tar.gz' -O miniupnpc-1.6.tar.gz
 
-wget 'http://www.openssl.org/source/openssl-1.0.1c.tar.gz'; wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz' 
+wget 'http://www.openssl.org/source/openssl-1.0.1f.tar.gz'; wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz' 
 
 wget 'http://downloads.sourceforge.net/project/libpng/zlib/1.2.6/zlib-1.2.6.tar.gz'
 
