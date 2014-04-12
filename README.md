@@ -15,16 +15,16 @@ changes to the code.
 The more people that gitian build, the stronger the assurance. Please consider following the instructions below to
 gitian-build to help validate our builds.
 
-This HOWTO was written against release v0.8.6.2.2 of Vertcoin. Change the specified commit in the commands as necessary
+This HOWTO was written against release v0.8.6.4 of Vertcoin. Change the specified commit in the commands as necessary
 if you want to build a different version. You can build a specific commit by specifying the full commit ID, or you
-can build a release by specifying a tag like v0.8.6.2.2 The full list of release tags is at 
+can build a release by specifying a tag like v0.8.6.4 The full list of release tags is at 
 https://github.com/vertcoin/vertcoin/releases and archived binaries are attached to each release tag
 
 
 HOWTO for Gitian builds:
 ========================
 
-Starting with a clean install of Ubuntu 12.04 LTS x64, this HOWTO was written/tested against Vertcoin 0.8.6.2. If you are 
+Starting with a clean install of Ubuntu 12.04 LTS x64, this HOWTO was written/tested against Vertcoin 0.8.6.4 If you are 
 building a later version, you may need to make small adjustments based on updated versions of dependencies etc.
 
 sudo apt-get update
@@ -54,7 +54,7 @@ Now make sure you're working on the correct version of the source that was used 
 
 cd vertcoin
 
-git checkout v0.8.6.2.2
+git checkout v0.8.6.4
 
 Now create a git branch of the gitian.sigs.vtc repository, so you can generate a pull request later once you've signed your 
 build assert files:
@@ -78,7 +78,7 @@ cd inputs
 
 wget 'http://miniupnp.free.fr/files/download.php?file=miniupnpc-1.6.tar.gz' -O miniupnpc-1.6.tar.gz
 
-wget 'http://www.openssl.org/source/openssl-1.0.1f.tar.gz'; wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz' 
+wget 'http://www.openssl.org/source/openssl-1.0.1g.tar.gz'; wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz' 
 
 wget 'http://downloads.sourceforge.net/project/libpng/zlib/1.2.6/zlib-1.2.6.tar.gz'
 
@@ -90,7 +90,7 @@ wget 'http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.t
 
 wget 'https://svn.boost.org/trac/boost/raw-attachment/ticket/7262/boost-mingw.patch' -O boost-mingw-gas-cross-compile-2013-03-03.patch 
 
-wget 'http://download.qt-project.org/archive/qt/4.8/4.8.3/qt-everywhere-opensource-src-4.8.3.tar.gz'
+wget 'http://download.qt-project.org/archive/qt/4.8/4.8.5/qt-everywhere-opensource-src-4.8.5.tar.gz'
 
 Now we can start to gitian-build the dependencies which will be needed to actually build Vertcoin. They must be built in gitian too, 
 so we have a replicable set of dependencies - this will ensure the final binaries are also replicable/deterministic. 
@@ -116,11 +116,11 @@ sudo mv build/out/bitcoin-deps-win32-gitian-r9.zip inputs/
 
 sudo ./bin/gbuild ../vertcoin/contrib/gitian-descriptors/qt-win32.yml
 
-sudo mv build/out/qt-win32-4.8.3-gitian-r4.zip inputs/
+sudo mv build/out/qt-win32-4.8.5-gitian-r4.zip inputs/
 
 Now we can build Vertcoin, note that you must specify the tag in the repository that relates to the version you wish to build:
 
-sudo bin/gbuild --commit vertcoin=v0.8.6.2.2 ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+sudo bin/gbuild --commit vertcoin=v0.8.6.4 ../vertcoin/contrib/gitian-descriptors/gitian-win64.yml
 
 It will pull the source again from git, into the inputs folder. The reason we have specified the version twice (earlier when we 
 did 'git checkout', and again now), is because earlier we wanted to ensure we were working with the correct version of the gitian 
@@ -155,7 +155,7 @@ Now you can get to signing your assert files:
 
 - If you don't have your gpg key on the build VM yet, simply gpg --import it first, then;
 
-bin/gsign --signer you@yourdomain.com --release v0.8.6.2.2 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
+bin/gsign --signer you@yourdomain.com --release v0.8.6.4 --destination ../gitian.sigs.vtc/ ../vertcoin/contrib/gitian-descriptors/gitian-win32.yml
 
 You now have an .assert file in the appropriate subfolder of the gitian.sigs.vtc folder, and an accompanying signature.
 
