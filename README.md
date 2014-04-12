@@ -95,7 +95,7 @@ wget 'http://download.qt-project.org/archive/qt/4.8/4.8.5/qt-everywhere-opensour
 Now we can start to gitian-build the dependencies which will be needed to actually build Vertcoin. They must be built in gitian too, 
 so we have a replicable set of dependencies - this will ensure the final binaries are also replicable/deterministic. 
 
-sudo bin/gbuild ../vertcoin/contrib/gitian-descriptors/boost-win32.yml
+sudo bin/gbuild ../vertcoin/contrib/gitian-descriptors/boost-win64.yml
 
 Expect this to take a while - the boost build is a big one.
 
